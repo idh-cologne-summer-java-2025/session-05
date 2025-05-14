@@ -4,9 +4,10 @@ import java.util.NoSuchElementException;
 
 public class MyLinkedList<T> implements Iterable<T> {
 
-    private static class Node<T> {
+	class Node<T> {
         T value;
         Node<T> next;
+        Node<T> previous;
 
         Node(T value) {
             this.value = value;
@@ -14,23 +15,22 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     private Node<T> first;
-    //TODO: Add last node
+    private Node<T> last;
+    
     
     private int size = 0;
 
     public void add(T value) {
         Node<T> newNode = new Node<>(value);
-        // TODO make it faster with last node
+       
         
         if (first == null) {
             first = newNode;
+            last = first;
         } 
         else {
-            Node<T> current = first;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            last.next = newNode;
+            last = newNode;
         }
         size++;
     }

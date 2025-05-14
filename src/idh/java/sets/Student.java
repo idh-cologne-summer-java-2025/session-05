@@ -32,7 +32,7 @@ public class Student{
 		if (! (o instanceof Student))
 			return false;
 		Student s = (Student) o;
-		return this.matrikelNummer == s.matrikelNummer;
+		return this.hashCode() == s.hashCode();
 	}
 	
 	@Override

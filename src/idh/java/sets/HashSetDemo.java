@@ -22,6 +22,7 @@ public class HashSetDemo {
 			Student student = new Student(ng.getName(), matrikel);
 			studentList.add(student);
 		}
+		studentList.get(4);
 		for (Student student : studentList) {
 			System.out.println(student);
 		}
@@ -39,11 +40,22 @@ public class HashSetDemo {
 			}
 		}
 		
-		// TODO: StudentSet anlegen und mit allen Einträgen der Liste füttern
+		Set<Student> studentSet = new HashSet<Student>();
+		
+		for (Student student : studentList) {
+			studentSet.add(student);
+			
+		}
+		System.out.println(studentSet.size());
+		
 		
 		
 		// TODO: Schauen, wer im StudentSet gelandet ist
-		
+		for (Student student : studentSet) {
+			if(student.getMatrikelNummer()==8669480) {
+				System.out.println("In den Kurs hat es geschafft: " + student);
+			}
+		}
 	}
 
 }
